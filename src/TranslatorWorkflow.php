@@ -122,7 +122,6 @@ class TranslatorWorkflow extends Workflow
 
     private function notify($title, $body)
     {
-        dump(__DIR__ . '/assets/imgs/icon.png');
         $notifier = NotifierFactory::create();
         $notification = (new Notification())
             ->setTitle($title)
