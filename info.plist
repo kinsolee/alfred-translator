@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.vip-k.translator</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>73E8B42A-51CC-4B48-B094-2A409F4F4D7E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>966A6A06-0585-4932-9A3C-1C260A629A84</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>950539D6-8AEC-4E13-B620-917855973BF6</key>
+		<array/>
+		<key>966A6A06-0585-4932-9A3C-1C260A629A84</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>25B2E72C-6C69-4797-A3A3-7EA7BC48613A</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>950539D6-8AEC-4E13-B620-917855973BF6</string>
+				<key>modifiers</key>
+				<integer>1048576</integer>
+				<key>modifiersubtext</key>
+				<string>播放音频🔈</string>
+				<key>vitoclose</key>
+				<true/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>9AF5CE30-62A9-48F3-BE69-5F5D202BE5DE</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>保存到Anki</string>
+				<key>vitoclose</key>
+				<true/>
+			</dict>
+		</array>
+		<key>9AF5CE30-62A9-48F3-BE69-5F5D202BE5DE</key>
+		<array/>
+	</dict>
+	<key>createdby</key>
+	<string>Kinso</string>
+	<key>description</key>
+	<string>Translate word and save to Anki</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Translator</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alignment</key>
+				<integer>0</integer>
+				<key>backgroundcolor</key>
+				<string></string>
+				<key>fadespeed</key>
+				<integer>0</integer>
+				<key>fillmode</key>
+				<integer>0</integer>
+				<key>font</key>
+				<string></string>
+				<key>largetypetext</key>
+				<string>{var:text}</string>
+				<key>textcolor</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.largetype</string>
+			<key>uid</key>
+			<string>25B2E72C-6C69-4797-A3A3-7EA7BC48613A</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>100</integer>
+				<key>keyword</key>
+				<string>t</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>Translating...</string>
+				<key>script</key>
+				<string>&lt;?php
+
+require('src/autoload.php');
+
+
+$translator = new \TranslatorWorkflow();
+
+echo $translator-&gt;query($argv[1]);
+
+
+?&gt;</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Type in the text you want to translate</string>
+				<key>title</key>
+				<string>Translation</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>966A6A06-0585-4932-9A3C-1C260A629A84</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>&lt;?php
+
+require('src/autoload.php');
+
+
+$translator = new \TranslatorWorkflow();
+
+echo $translator-&gt;speech($argv[1]);
+
+
+?&gt;</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>950539D6-8AEC-4E13-B620-917855973BF6</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>1</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>-1</integer>
+				<key>hotmod</key>
+				<integer>1048576</integer>
+				<key>hotstring</key>
+				<string>double tap</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>73E8B42A-51CC-4B48-B094-2A409F4F4D7E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>&lt;?php
+
+require('src/autoload.php');
+
+
+$translator = new \TranslatorWorkflow();
+
+echo $translator-&gt;saveToAnki($argv[1]);
+
+
+?&gt;</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>9AF5CE30-62A9-48F3-BE69-5F5D202BE5DE</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>25B2E72C-6C69-4797-A3A3-7EA7BC48613A</key>
+		<dict>
+			<key>note</key>
+			<string>显示详情</string>
+			<key>xpos</key>
+			<integer>550</integer>
+			<key>ypos</key>
+			<integer>20</integer>
+		</dict>
+		<key>73E8B42A-51CC-4B48-B094-2A409F4F4D7E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>30</integer>
+			<key>ypos</key>
+			<integer>250</integer>
+		</dict>
+		<key>950539D6-8AEC-4E13-B620-917855973BF6</key>
+		<dict>
+			<key>note</key>
+			<string>在线发音</string>
+			<key>xpos</key>
+			<integer>550</integer>
+			<key>ypos</key>
+			<integer>250</integer>
+		</dict>
+		<key>966A6A06-0585-4932-9A3C-1C260A629A84</key>
+		<dict>
+			<key>xpos</key>
+			<integer>230</integer>
+			<key>ypos</key>
+			<integer>250</integer>
+		</dict>
+		<key>9AF5CE30-62A9-48F3-BE69-5F5D202BE5DE</key>
+		<dict>
+			<key>note</key>
+			<string>保存Anki</string>
+			<key>xpos</key>
+			<integer>550</integer>
+			<key>ypos</key>
+			<integer>435</integer>
+		</dict>
+	</dict>
+	<key>variables</key>
+	<dict>
+		<key>ANKI_DECK</key>
+		<string>默认</string>
+		<key>ANKI_FIELD</key>
+		<string>正面</string>
+		<key>ANKI_MODEL</key>
+		<string>基础</string>
+		<key>APPKEY</key>
+		<string>3a69aec388d9669e</string>
+		<key>SECRET</key>
+		<string>ycNiIcBy3smptcPusb0WNzzOyMlnpBvZ</string>
+	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>APPKEY</string>
+		<string>SECRET</string>
+	</array>
+	<key>version</key>
+	<string>1.0</string>
+	<key>webaddress</key>
+	<string>https://github.com/kinsolee/alfred-translator</string>
+</dict>
+</plist>

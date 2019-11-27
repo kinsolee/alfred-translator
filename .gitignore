@@ -1,0 +1,7 @@
+.env
+composer.lock
+*.log
+*.txt
+./db/*
+.DS_Store
+.idea/*

@@ -1,0 +1,22 @@
+{
+  "require": {
+    "guzzlehttp/guzzle": "^6",
+    "ext-json": "*",
+    "kinsolee/alfred-workflow": "dev-master",
+    "jolicode/jolinotif": "^2.0"
+  },
+  "require-dev": {
+    "symfony/var-dumper": "^4.3"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/kinsolee/alfred-workflow"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "": "src/"
+    }
+  }
+}
