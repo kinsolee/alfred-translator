@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.vip-k.translator</string>
-	<key>category</key>
-	<string>Tools</string>
 	<key>connections</key>
 	<dict>
 		<key>73E8B42A-51CC-4B48-B094-2A409F4F4D7E</key>
@@ -82,10 +80,14 @@
 				<integer>0</integer>
 				<key>font</key>
 				<string></string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
 				<key>largetypetext</key>
 				<string>{var:text}</string>
 				<key>textcolor</key>
 				<string></string>
+				<key>wrapat</key>
+				<integer>50</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.output.largetype</string>
@@ -316,7 +318,7 @@ echo $translator-&gt;saveToAnki($argv[1]);
 		<string>SECRET</string>
 	</array>
 	<key>version</key>
-	<string>1.0</string>
+	<string>0.1.0</string>
 	<key>webaddress</key>
 	<string>https://github.com/kinsolee/alfred-translator</string>
 </dict>

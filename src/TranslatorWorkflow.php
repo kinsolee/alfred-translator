@@ -98,7 +98,6 @@ class TranslatorWorkflow extends Workflow
         $this->query = $query;
 
         $this->provider->speech($this->query);
-
     }
 
 
